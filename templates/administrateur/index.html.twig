@@ -1,0 +1,59 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Administrateur
+{% endblock %}
+
+{% block content_header %}
+	<ul class="menu-nav">
+		<li class="menu-item menu-item-active" aria-haspopup="true">
+			<a href="{{ path('administrateur_index') }}" class="menu-link">
+				<span class="menu-text">Accueil</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('utilisateur_index') }}" class="menu-link">
+				<span class="menu-text">Utilisateurs</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('client_index') }}" class="menu-link">
+				<span class="menu-text">Clients</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('produit_index') }}" class="menu-link">
+				<span class="menu-text">Produits</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('offer_index') }}" class="menu-link">
+				<span class="menu-text">Ventes</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('autre_index') }}" class="menu-link">
+				<span class="menu-text">Autres</span>
+			</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block content_subheader %}
+	<!--begin::Page Title-->
+	<h5 class="text-dark font-weight-bold my-1 mr-5">Accueil</h5>
+	<!--end::Page Title-->
+	<!--begin::Breadcrumb-->
+	<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+		<li class="breadcrumb-item text-muted">
+			<span class="text-muted">Application</span>
+		</li>
+		<li class="breadcrumb-item text-muted">
+			<a href="{{ path('administrateur_index') }}" class="text-muted">Accueil</a>
+		</li>
+	</ul>
+	<!--end::Breadcrumb-->
+{% endblock %}
+
+{% block content_body %}
+	<h1>Administrateur index</h1>
+{% endblock %}

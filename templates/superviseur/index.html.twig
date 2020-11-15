@@ -1,0 +1,112 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Superviseur
+{% endblock %}
+
+{# {% block javascripts %}
+	<script src="{{ asset('js/pages/features/miscellaneous/blockuie8da.js?v=2.0.3') }}"></script>
+{% endblock %} #}
+
+{% block content_header %}
+	<ul class="menu-nav">
+		<li class="menu-item menu-item-active" aria-haspopup="true">
+			<a href="{{ path('superviseur_index') }}" class="menu-link">
+				<span class="menu-text">Accueil</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('offer_index') }}" class="menu-link">
+				<span class="menu-text">Ventes</span>
+			</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block content_subheader %}
+	<!--begin::Page Title-->
+	<h5 class="text-dark font-weight-bold my-1 mr-5">Accueil</h5>
+	<!--end::Page Title-->
+	<!--begin::Breadcrumb-->
+	<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+		<li class="breadcrumb-item text-muted">
+			<span class="text-muted">Application</span>
+		</li>
+		<li class="breadcrumb-item text-muted">
+			<a href="{{ path('superviseur_index') }}" class="text-muted">Accueil</a>
+		</li>
+	</ul>
+	<!--end::Breadcrumb-->
+{% endblock %}
+
+{% block content_body %}
+	<!--begin::Content-->
+	<div
+		class="content d-flex flex-column flex-column-fluid" id="kt_content">
+		<!--begin::Entry-->
+		<div
+			class="d-flex flex-column-fluid">
+			<!--begin::Container-->
+			<div
+				class="container">
+				<!--begin::Row-->
+				<div class="row">
+					<div
+						class="col-xl-12">
+						<!--begin::Tables Widget 5-->
+						<div
+							class="card card-custom card-stretch" id="kt_blockui_content">
+							<!--begin::Header-->
+							<div class="card-header border-0 pt-7">
+								<h3 class="card-title align-items-start flex-column">
+									<span class="card-label font-weight-bold font-size-h4 text-dark-75">Boîte de réception</span>
+									<span class="text-muted mt-3 font-weight-bold font-size-sm" id="notifications_list_count"></span>
+								</h3>
+							</div>
+							<!--end::Header-->
+							<!--begin::Body-->
+							<div class="card-body pt-0 pb-4">
+								<div
+									class="tab-content mt-2">
+									<!--begin::Tap pane-->
+									<div>
+										<!--begin::Table-->
+										<div class="table-responsive">
+											<table class="table table-borderless table-vertical-center">
+												<thead>
+													<tr>
+														<th class="p-0 w-50px"></th>
+														<th class="p-0 min-w-125px"></th>
+														<th class="p-0 min-w-125px"></th>
+														<th class="p-0 min-w-110px"></th>
+														<th class="p-0 min-w-110px"></th>
+														<th class="p-0 min-w-50px"></th>
+													</tr>
+												</thead>
+
+												<tbody id="notifications_list">
+													<div class="form-group">
+														<div class="alert alert-custom alert-default border" role="alert">
+															<div class="alert-text text-center">Aucune Notification.</div>
+														</div>
+													</div>
+												</tbody>
+											</table>
+										</div>
+										<!--end::Tablet-->
+									</div>
+									<!--end::Tap pane-->
+								</div>
+							</div>
+							<!--end::Body-->
+						</div>
+						<!--end::Tables Widget 5-->
+					</div>
+				</div>
+				<!--end::Row-->
+			</div>
+			<!--end::Container-->
+		</div>
+		<!--end::Entry-->
+	</div>
+	<!--end::Content-->
+{% endblock %}

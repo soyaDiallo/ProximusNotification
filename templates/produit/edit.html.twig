@@ -1,0 +1,158 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Modifier Produit
+{% endblock %}
+
+{% block content_header %}
+	<ul class="menu-nav">
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('administrateur_index') }}" class="menu-link">
+				<span class="menu-text">Accueil</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('utilisateur_index') }}" class="menu-link">
+				<span class="menu-text">Utilisateurs</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('client_index') }}" class="menu-link">
+				<span class="menu-text">Clients</span>
+			</a>
+		</li>
+		<li class="menu-item menu-item-active" aria-haspopup="true">
+			<a href="{{ path('produit_index') }}" class="menu-link">
+				<span class="menu-text">Produits</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('offer_index') }}" class="menu-link">
+				<span class="menu-text">Ventes</span>
+			</a>
+		</li>
+		<li class="menu-item" aria-haspopup="true">
+			<a href="{{ path('autre_index') }}" class="menu-link">
+				<span class="menu-text">Autres</span>
+			</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block content_subheader %}
+	<!--begin::Page Title-->
+	<h5 class="text-dark font-weight-bold my-1 mr-5">Modifier Produit</h5>
+	<!--end::Page Title-->
+
+	<!--begin::Breadcrumb-->
+	<ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+		<li class="breadcrumb-item text-muted">
+			<span class="text-muted">Application</span>
+		</li>
+		<li class="breadcrumb-item text-muted">
+			<a href="{{ path('administrateur_index') }}" class="text-muted">Accueil</a>
+		</li>
+		<li class="breadcrumb-item text-muted">
+			<a href="{{ path('utilisateur_index') }}" class="text-muted">Les produits</a>
+		</li>
+		<li class="breadcrumb-item text-muted">
+			<a href="{{ path('utilisateur_new') }}" class="text-muted">Modifier Produit</a>
+		</li>
+	</ul>
+	<!--end::Breadcrumb-->
+{% endblock %}
+
+{% block content_body %}
+	<!--begin::Content-->
+	<div
+		class="content d-flex flex-column flex-column-fluid" id="kt_content">
+		<!--begin::Entry-->
+		<div
+			class="d-flex flex-column-fluid">
+			<!--begin::Container-->
+			<div class="container">
+				{{ form_start(form, {'attr': {'class': 'form'}}) }}
+				<div
+					class="card card-custom">
+					<!--begin::Header-->
+					<div class="card-header py-3">
+						<div class="card-title align-items-start flex-column">
+							<h3 class="card-label font-weight-bolder text-dark">Modifier Produit - #{{ produit.code|upper }}</h3>
+							<span class="text-muted font-weight-bold font-size-sm mt-1">Modification d'un produit.</span>
+						</div>
+					</div>
+					<!--end::Header-->
+
+					<!--begin::Body-->
+					<div class="card-body">
+						<div>
+							<div class="row">
+								<div
+									class="col-xl-6">
+									<!--begin::Input-->
+									<div class="form-group">
+										<label>Code</label>
+										{{ form_widget(form.code, {'attr': {'class': 'form-control form-control-solid form-control-lg', 'placeholder': 'Code Produit'}}) }}
+									</div>
+									<!--end::Input-->
+								</div>
+								<div
+									class="col-xl-6">
+									<!--begin::Input-->
+									<div class="form-group">
+										<label>Désignation</label>
+										{{ form_widget(form.designation, {'attr': {'class': 'form-control form-control-solid form-control-lg', 'placeholder': 'Désignation Produit'}}) }}
+									</div>
+									<!--end::Input-->
+								</div>
+							</div>
+
+							<div class="row">
+								<div
+									class="col-xl-6">
+									<!--begin::Input-->
+									<div class="form-group">
+										<label>Catégorie</label>
+										{{ form_widget(form.categorie, {'attr': {'class': 'form-control form-control-solid form-control-lg', 'placeholder': 'Catégorie Produit'}}) }}
+									</div>
+									<!--end::Input-->
+								</div>
+								<div
+									class="col-xl-6">
+									<!--begin::Input-->
+									<div class="form-group">
+										<label>Rémunération</label>
+										<select name="remuneration" class="form-control form-control-solid form-control-lg">
+											{% for item in remunerations %}
+												<option value="{{item.id}}" {% if item.id == remuneration.remuneration.id %} selected {% endif %}>{{item.montant}}
+													€</option>
+											{% endfor %}
+										</select>
+									</div>
+									<!--end::Input-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--end::Body-->
+
+					<!--begin::Footer-->
+					<div class="card-footer py-5 px-5">
+						<div class="card-toolbar float-right">
+							<button type="submit" class="btn btn-primary font-weight-bolder px-5 mr-3">
+								Enregistrer
+							</button>
+							<a href="{{ path('produit_index') }}" class="btn btn-light-primary font-weight-bold px-5 mr-3">
+								Annuler
+							</a>
+						</div>
+					</div>
+					<!--end::Footer-->
+				</div>
+				{{ form_end(form) }}
+			</div>
+			<!--end::Container-->
+		</div>
+		<!--end::Entry-->
+	</div>
+	<!--end::Content-->
+{% endblock %}
